@@ -2,13 +2,17 @@
 using namespace bangtal;
 
 int main() {
-	auto scene = Scene::create("산타레이스", "C:/Users/URBAN/OneDrive/Desktop/SantaRace/bangtal.cpp-master/bangtal.cpp-master/SantaRace/Images/background.png");
+
+	setGameOption(GameOption::GAME_OPTION_INVENTORY_BUTTON, false);
+	setGameOption(GameOption::GAME_OPTION_MESSAGE_BOX_BUTTON, false);
+
+	auto scene = Scene::create("산타레이스", "Images/background2.png");
 	auto santaX = 0, santaY = 500;
-	auto santa = Object::create("C:/Users/URBAN/OneDrive/Desktop/SantaRace/bangtal.cpp-master/bangtal.cpp-master/SantaRace/Images/santa.png", scene, santaX, santaY);
+	auto santa = Object::create("Images/santa.png", scene, santaX, santaY);
 	
-	auto startButton = Object::create("C:/Users/URBAN/OneDrive/Desktop/SantaRace/bangtal.cpp-master/bangtal.cpp-master/SantaRace/Images/start.png", scene, 590, 70);
-	auto endButton = Object::create("C:/Users/URBAN/OneDrive/Desktop/SantaRace/bangtal.cpp-master/bangtal.cpp-master/SantaRace/Images/end.png", scene, 590, 20);
-	auto playButton = Object::create("C:/Users/URBAN/OneDrive/Desktop/SantaRace/bangtal.cpp-master/bangtal.cpp-master/SantaRace/Images/play.png", scene, 610, 30, false);
+	auto startButton = Object::create("Images/start.png", scene, 590, 70);
+	auto endButton = Object::create("Images/end.png", scene, 590, 20);
+	auto playButton = Object::create("Images/play.png", scene, 610, 30, false);
 
 	auto timer = Timer::create(10.f);
 	showTimer(timer);
@@ -16,7 +20,7 @@ int main() {
 		showMessage("선물 배달 실패!");
 		
 		startButton->show();
-		startButton->setImage("C:/Users/URBAN/OneDrive/Desktop/SantaRace/bangtal.cpp-master/bangtal.cpp-master/SantaRace/Images/restart.png");
+		startButton->setImage("Images/restart.png");
 		endButton->show();
 		playButton->hide();
 
@@ -54,7 +58,7 @@ int main() {
 			timer->stop();
 
 			startButton->show();
-			startButton->setImage("C:/Users/URBAN/OneDrive/Desktop/SantaRace/bangtal.cpp-master/bangtal.cpp-master/SantaRace/Images/restart.png");
+			startButton->setImage("Images/restart.png");
 			endButton->show();
 			playButton->hide();
 
